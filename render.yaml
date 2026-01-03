@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: boq-analyzer
+    env: node
+    plan: free
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: OAUTH_SERVER_URL
+        sync: false
