@@ -23,7 +23,7 @@ export interface BOQItem {
 export async function extractTextWithPositions(pdf: any): Promise<Array<{ text: string; page: number; x: number; y: number }>> {
   const allText: Array<{ text: string; page: number; x: number; y: number }> = [];
 
-  for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 20); pageNum++) {
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
     try {
       const page = await pdf.getPage(pageNum);
       const textContent = await page.getTextContent();
